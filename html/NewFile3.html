@@ -28,7 +28,7 @@ $(document).ready(function() {
 	    	};
 	    	var itemStr = item += '\n';
 	    	if(itemStr.length == 1){
-	    		resultJson[title][titleArrayCnt] = CSVJSON.csv2json(jsonArrayStr, {parseNumbers: true});
+	    		resultJson[title]['Array'+titleArrayCnt] = CSVJSON.csv2json(jsonArrayStr, {parseNumbers: true});
 	    		titleArrayCnt++;
 	    		jsonArrayStr = '';
 	    	}
