@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+#heading { font-size: x-large; font-weight: bold; }
+.text { width: 99%; height: 200px; }
+.small { font-size: small; }
+</style>
+<script src="../js/jquery-3.4.1.min.js"></script>
+<script src="../js/csv2json.js"></script>
+<script type="text/javascript">
+$(document).ready(function() { 
+	$("#convert").click(function() {
+	    var csv = $("#csv").val();
+	    var arrayOfLine = csv.split('\n');
+	    var resultJson = {};
+	    var title = '';
+	    var titleArrayCnt = '1';
+	    var jsonArrayStr = '';
+	    $.each(arrayOfLine, function(index, item){
+	    	if(item.startsWith("#")){
+	    		title = item;
+	    		resultJson[title] = {};
+	    		titleArrayCnt = '1';
+	    		return;
+	    	};
+	    	var itemStr = item += '\n';
+	    	if(itemStr.length == 1){
+	    		resultJson[title][titleArrayCnt] = CSVJSON.csv2json(jsonArrayStr, {parseNumbers: true});
+	    		titleArrayCnt++;
+	    		jsonArrayStr = '';
+	    	}
+	    	jsonArrayStr += itemStr;
+	    	
+	    });
+	    $("#json").val(JSON.stringify(resultJson, null, 2));
+	});
+});
+</script> 
+
+</head>
+<body>
+    <p id="heading">CSV to JSON Converter</p>
+    <hr />
+    <p>Paste Your CSV Here:</p>
+    <textarea id="csv" class="text">"Id","UserName"
+"1","Sam Smith"
+"2","Fred Frankly"
+"1","Zachary Zupers"</textarea>
+    <br />
+    <button id="convert">Convert to JSON</button>
+    &nbsp;&nbsp;
+    <textarea id="json" class="text"></textarea>
+</body>
+</html>
