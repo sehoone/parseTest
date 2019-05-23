@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>testPage</title>
+
+    <!-- Bootstrap -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+	<link href="../css/dataTables.bootstrap.min.css" rel="stylesheet">
+	<!-- JQVMap -->
+    <link href="../css/jqvmap.min.css" rel="stylesheet"/>
+    <!-- Custom Theme Style -->
+    <link href="../css/custom.min.css" rel="stylesheet">
+    
+    
+  </head>
+
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Admin</span></a>
+            </div>
+            <div class="clearfix"></div>
+            <br />
+
+          </div>
+        </div>
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>Firebase Report <small>csv file to report view</small></h3>
+              </div>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="row">
+              <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>tag </h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <canvas id="lineChart"></canvas>
+                  </div>
+                  <div class="x_content">
+                  	<table id="tagTable" class="table table-striped table-bordered">
+						<thead>
+						   	<tr>
+						    	<th data-field="맞춤 매개변수">맞춤 매개변수</th>
+						     	<th data-field="이벤트 수">이벤트 수</th>
+						     	<th data-field="사용자">사용자</th>
+						   	</tr>
+						</thead>
+					</table>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Bar Graph <small>Sessions</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <!-- <canvas id="mybarChart1"></canvas> -->
+                    <div id="world-map-gdp" style="height:400px;"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Donut Chart Graph <small>Sessions</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <canvas id="canvasDoughnut"></canvas>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Radar Chart <small>Sessions</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <canvas id="canvasRadar"></canvas>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Pie Area Chart <small>Sessions</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <canvas id="polarArea"></canvas>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Pie Chart Graph <small>Sessions</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <canvas id="pieChart"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+            <br />
+          </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+
+    <textarea id="csv" class="text" style="display:none;">
+# tag #
+N일,이벤트 수
+0000,0
+0001,0
+0002,0
+0003,0
+0004,0
+0005,0
+0006,0
+0007,0
+0008,0
+0009,0
+0010,0
+0011,0
+0012,0
+0013,0
+0014,0
+0015,0
+0016,0
+0017,0
+0018,0
+0019,1855
+0020,3990
+0021,3809
+0022,2585
+0023,2097
+0024,12
+0025,8
+0026,1531
+0027,2136
+
+맞춤 매개변수,이벤트 수,사용자
+(not set),1317,36
+Native:검색:메인:검색어 입력,1290,34
+Native:디테일:업로드 이벤트:동영상 플레이,1072,19
+Native:홈:메인:마이페이지 아이콘,734,44
+Native:디테일:업로드 이벤트:이전 버튼,645,53
+Native:홈:메인:스페이스 아이콘,585,43
+Native:홈:메인:퍼블릭 콘텐츠(이벤트_업로드):퍼블릭 콘텐츠,573,26
+Native:홈:메인:퍼블릭 콘텐츠(이벤트_댓글 or 투표):이벤트 자세히 보기,529,46
+Native:홈:메인:퍼블릭 콘텐츠(이벤트_댓글 or 투표):카드 선택,519,42
+Native:홈:메인:추천:마이페이지 아이콘,513,63
+Native:디테일:업로드 이벤트:Likey에 업로드,506,40
+Native:디테일:업로드 이벤트:이벤트 참여하기:(Device 갤러리):새 게시물:작성하기:완료 버튼,489,28
+Native:홈:메인:추천:스페이스 아이콘,476,62
+Native:홈:메인:퍼블릭 콘텐츠(이벤트_업로드):퍼블릭 콘텐츠 목록,434,52
+Native:홈:메인:추천:홈 아이콘,403,57
+Native:디테일:업로드 이벤트:이벤트 참여하기:(Device 갤러리),386,18
+Native:홈:메인:홈 아이콘,323,38
+Native:홈:메인:별이 빛나는 밤:카드 선택,245,18
+Native:홈:메인:추천:검색 아이콘,225,50
+Native:디테일:업로드 이벤트:참여 리스트 아이콘,177,24
+Native:디테일:업로드 이벤트:참여방법 안내 아이콘,172,49
+Native:디테일:업로드 이벤트:더보기,167,23
+Native:홈:메인:([Test] 댓글형 이벤트트트트트텔미미미미미미마아아아아아아아아아아이스아메리카):카드 선택,164,9
+Native:최초실행:로그인 안내:SNS 및 E-mail 로그인,153,66
+Native:마이페이지:설정 아이콘,150,42
+Native:디테일:업로드 이벤트:이벤트 참여하기:(Device 갤러리):새 게시물:작성하기:이전 버튼,148,15
+Native:디테일:업로드 이벤트:참여방법 안내 아이콘:참여방법 안내 팝업:이전 버튼,131,39
+Native:디테일:업로드 이벤트:참여방법 안내 아이콘:참여방법 안내 팝업:닫기 버튼,126,45
+Native:스페이스:DESIGN LIBRARY:옵션 버튼,121,35
+Native:최초실행:로그인 안내:현대카드 로그인,118,61
+Native:로그인:로그인 안내:현대카드 로그인:개인회원:로그인,114,53
+Native:디테일:방문 인증:더보기,104,2
+undefined:이전 버튼,104,12
+Native:홈:메인:필터,101,32
+Native:홈:메인:퀵뷰:카드 선택,99,34
+Native:디테일:업로드 이벤트:이벤트 참여하기:(Device 갤러리):새 게시물:1:1 비율,98,21
+Native:디테일:업로드 이벤트:이벤트 참여하기:(Device 갤러리):새 게시물:Crop 버튼,98,21
+Native:디테일:업로드 이벤트:이벤트 참여하기:(Device 갤러리):새 게시물:다음 버튼,96,19
+Native:디테일:업로드 이벤트:정렬 아이콘,95,13
+Native:홈:메인:[TEST] UPLOAD EVENT:카드 선택,94,9
+Native:기타:디바이스 접근 권한 안내:확인,93,86
+Native:스페이스:DESIGN LIBRARY:방문 인증,89,10
+Native:디테일:업로드 이벤트:참여 리스트 아이콘:참여 리스트 팝업:,80,8
+"Native:홈:메인:(미션 
+Test):카드 선택",77,9
+Native:디테일:업로드 이벤트:옵션:삭제하기,75,10
+Native:홈:메인:[TEST]박's 코팅 아카데미:카드 선택,72,6
+Native:홈:메인:(별이 빛나는 밤):카드 선택,71,23
+Native:마이페이지:메인:활동 Tab:옵션,68,7
+
+# 이벤트 위치 #
+국가 ID,이벤트 수
+KR,20144
+US,2
+
+	</textarea>
+
+    <!-- jQuery -->
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- Chart.js -->
+    <script src="../js/Chart.min.js"></script>
+    
+    <script src="../js/csv2json.js"></script>
+    
+    <script src="../js/jquery.dataTables.min.js"></script>
+    <script src="../js/jquery.vmap.min.js"></script>
+    <script src="../js/jquery.vmap.world.js"></script>
+    <!-- Custom Theme Scripts -->
+    <script src="../js/custom.js"></script>
+  </body>
+</html>

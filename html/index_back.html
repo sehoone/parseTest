@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>SB Admin 2 - Dashboard</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="../css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="../css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <div class="sidebar-brand-icon rotate-n-15">
+          <i class="fas fa-laugh-wink"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">Admin</div>
+      </a>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item active">
+        <a class="nav-link" href="index.html">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span></a>
+      </li>
+
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+          <!-- Sidebar Toggle (Topbar) -->
+          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+
+          <!-- Topbar Navbar -->
+          <ul class="navbar-nav ml-auto">
+
+
+          </ul>
+
+        </nav>
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+          </div>
+
+          <div class="row">
+
+            <!-- Area Chart -->
+            <div class="col-xl-8 col-lg-7">
+              <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary">tag</h6>
+                  <div class="dropdown no-arrow">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                      <div class="dropdown-header">Dropdown Header:</div>
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                  </div>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                  <div class="chart-area">
+                    <canvas id="tagLineChart"></canvas>
+                  </div>
+                </div>
+                <div class="card-body">
+					<div class="chart-area">
+						<table id="tagTable">
+							<thead>
+						    	<tr>
+							    	<th data-field="맞춤 매개변수">맞춤 매개변수</th>
+							     	<th data-field="이벤트 수">이벤트 수</th>
+							     	<th data-field="사용자">사용자</th>
+						    	</tr>
+						        </thead>
+						</table>
+                  	</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pie Chart -->
+            <div class="col-xl-4 col-lg-5">
+              <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
+                  <div class="dropdown no-arrow">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                      <div class="dropdown-header">Dropdown Header:</div>
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                  </div>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                  <div class="chart-pie pt-4 pb-2">
+                    <canvas id="myPieChart"></canvas>
+                  </div>
+                  <div class="mt-4 text-center small">
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-primary"></i> Direct
+                    </span>
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-success"></i> Social
+                    </span>
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-info"></i> Referral
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Content Row -->
+          <div class="row">
+
+            <!-- Content Column -->
+            <div class="col-lg-6 mb-4">
+
+              <!-- Project Card Example -->
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Projects</h6>
+                </div>
+                <div class="card-body">
+                  <h4 class="small font-weight-bold">Server Migration <span class="float-right">20%</span></h4>
+                  <div class="progress mb-4">
+                    <div class="progress-bar bg-danger" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <h4 class="small font-weight-bold">Sales Tracking <span class="float-right">40%</span></h4>
+                  <div class="progress mb-4">
+                    <div class="progress-bar bg-warning" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <h4 class="small font-weight-bold">Customer Database <span class="float-right">60%</span></h4>
+                  <div class="progress mb-4">
+                    <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <h4 class="small font-weight-bold">Payout Details <span class="float-right">80%</span></h4>
+                  <div class="progress mb-4">
+                    <div class="progress-bar bg-info" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <h4 class="small font-weight-bold">Account Setup <span class="float-right">Complete!</span></h4>
+                  <div class="progress">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Color System -->
+              <div class="row">
+                <div class="col-lg-6 mb-4">
+                  <div class="card bg-primary text-white shadow">
+                    <div class="card-body">
+                      Primary
+                      <div class="text-white-50 small">#4e73df</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                  <div class="card bg-success text-white shadow">
+                    <div class="card-body">
+                      Success
+                      <div class="text-white-50 small">#1cc88a</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                  <div class="card bg-info text-white shadow">
+                    <div class="card-body">
+                      Info
+                      <div class="text-white-50 small">#36b9cc</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                  <div class="card bg-warning text-white shadow">
+                    <div class="card-body">
+                      Warning
+                      <div class="text-white-50 small">#f6c23e</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                  <div class="card bg-danger text-white shadow">
+                    <div class="card-body">
+                      Danger
+                      <div class="text-white-50 small">#e74a3b</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                  <div class="card bg-secondary text-white shadow">
+                    <div class="card-body">
+                      Secondary
+                      <div class="text-white-50 small">#858796</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="col-lg-6 mb-4">
+
+              <!-- Illustrations -->
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
+                </div>
+                <div class="card-body">
+                  <div class="text-center">
+                    <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="../img/undraw_posting_photo.svg" alt="">
+                  </div>
+                  <p>Add some quality, svg illustrations to your project courtesy of <a target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a constantly updated collection of beautiful svg images that you can use completely free and without attribution!</p>
+                  <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on unDraw &rarr;</a>
+                </div>
+              </div>
+
+              <!-- Approach -->
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Development Approach</h6>
+                </div>
+                <div class="card-body">
+                  <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce CSS bloat and poor page performance. Custom CSS classes are used to create custom components and custom utility classes.</p>
+                  <p class="mb-0">Before working with this theme, you should become familiar with the Bootstrap framework, especially the utility classes.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Your Website 2019</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="login.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <textarea id="csv" class="text" style="display:none;">
+# tag #
+N일,이벤트 수
+0000,0
+0001,0
+0002,0
+0003,0
+0004,0
+0005,0
+0006,0
+0007,0
+0008,0
+0009,0
+0010,0
+0011,0
+0012,0
+0013,0
+0014,0
+0015,0
+0016,0
+0017,0
+0018,0
+0019,1855
+0020,3990
+0021,3809
+0022,2585
+0023,2097
+0024,12
+0025,8
+0026,1531
+0027,2136
+
+맞춤 매개변수,이벤트 수,사용자
+(not set),1317,36
+Native:검색:메인:검색어 입력,1290,34
+Native:디테일:업로드 이벤트:동영상 플레이,1072,19
+Native:홈:메인:마이페이지 아이콘,734,44
+Native:디테일:업로드 이벤트:이전 버튼,645,53
+Native:홈:메인:스페이스 아이콘,585,43
+Native:홈:메인:퍼블릭 콘텐츠(이벤트_업로드):퍼블릭 콘텐츠,573,26
+Native:홈:메인:퍼블릭 콘텐츠(이벤트_댓글 or 투표):이벤트 자세히 보기,529,46
+Native:홈:메인:퍼블릭 콘텐츠(이벤트_댓글 or 투표):카드 선택,519,42
+Native:홈:메인:추천:마이페이지 아이콘,513,63
+Native:디테일:업로드 이벤트:Likey에 업로드,506,40
+Native:디테일:업로드 이벤트:이벤트 참여하기:(Device 갤러리):새 게시물:작성하기:완료 버튼,489,28
+Native:홈:메인:추천:스페이스 아이콘,476,62
+Native:홈:메인:퍼블릭 콘텐츠(이벤트_업로드):퍼블릭 콘텐츠 목록,434,52
+Native:홈:메인:추천:홈 아이콘,403,57
+Native:디테일:업로드 이벤트:이벤트 참여하기:(Device 갤러리),386,18
+Native:홈:메인:홈 아이콘,323,38
+Native:홈:메인:별이 빛나는 밤:카드 선택,245,18
+Native:홈:메인:추천:검색 아이콘,225,50
+Native:디테일:업로드 이벤트:참여 리스트 아이콘,177,24
+Native:디테일:업로드 이벤트:참여방법 안내 아이콘,172,49
+Native:디테일:업로드 이벤트:더보기,167,23
+Native:홈:메인:([Test] 댓글형 이벤트트트트트텔미미미미미미마아아아아아아아아아아이스아메리카):카드 선택,164,9
+Native:최초실행:로그인 안내:SNS 및 E-mail 로그인,153,66
+Native:마이페이지:설정 아이콘,150,42
+Native:디테일:업로드 이벤트:이벤트 참여하기:(Device 갤러리):새 게시물:작성하기:이전 버튼,148,15
+Native:디테일:업로드 이벤트:참여방법 안내 아이콘:참여방법 안내 팝업:이전 버튼,131,39
+Native:디테일:업로드 이벤트:참여방법 안내 아이콘:참여방법 안내 팝업:닫기 버튼,126,45
+Native:스페이스:DESIGN LIBRARY:옵션 버튼,121,35
+Native:최초실행:로그인 안내:현대카드 로그인,118,61
+Native:로그인:로그인 안내:현대카드 로그인:개인회원:로그인,114,53
+Native:디테일:방문 인증:더보기,104,2
+undefined:이전 버튼,104,12
+Native:홈:메인:필터,101,32
+Native:홈:메인:퀵뷰:카드 선택,99,34
+Native:디테일:업로드 이벤트:이벤트 참여하기:(Device 갤러리):새 게시물:1:1 비율,98,21
+Native:디테일:업로드 이벤트:이벤트 참여하기:(Device 갤러리):새 게시물:Crop 버튼,98,21
+Native:디테일:업로드 이벤트:이벤트 참여하기:(Device 갤러리):새 게시물:다음 버튼,96,19
+Native:디테일:업로드 이벤트:정렬 아이콘,95,13
+Native:홈:메인:[TEST] UPLOAD EVENT:카드 선택,94,9
+Native:기타:디바이스 접근 권한 안내:확인,93,86
+Native:스페이스:DESIGN LIBRARY:방문 인증,89,10
+Native:디테일:업로드 이벤트:참여 리스트 아이콘:참여 리스트 팝업:,80,8
+"Native:홈:메인:(미션 
+Test):카드 선택",77,9
+Native:디테일:업로드 이벤트:옵션:삭제하기,75,10
+Native:홈:메인:[TEST]박's 코팅 아카데미:카드 선택,72,6
+Native:홈:메인:(별이 빛나는 밤):카드 선택,71,23
+Native:마이페이지:메인:활동 Tab:옵션,68,7
+
+# 이벤트 위치 #
+국가 ID,이벤트 수
+KR,20144
+US,2
+
+	</textarea>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="../js/jquery-3.4.1.min.js"></script>
+  <script src="../js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="../js/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="../js/sb-admin-2.min.js"></script>
+
+  <!-- Page level plugins -->
+  <script src="../js/Chart.min.js"></script>
+  <script src="../js/csv2json.js"></script>
+  <!-- Page level custom scripts -->
+  <!-- 
+  <script src="../js/chart-area-demo.js"></script> -->
+  <script src="../js/chart-pie-demo.js"></script>
+  <script src="../js/custom.js"></script>
+</body>
+
+</html>

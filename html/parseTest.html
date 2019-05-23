@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+#heading { font-size: x-large; font-weight: bold; }
+.text { width: 99%; height: 200px; }
+.small { font-size: small; }
+</style>
+<script src="../js/jquery-3.4.1.min.js"></script>
+<script src="../js/csv2json.js"></script>
+<script type="text/javascript">
+
+	var graphArray = ['# tag # N일,이벤트 수'];
+
+	$(document).ready(function() { 
+		$('#convert').click(function() {
+		    var csv = $('#csv').val();
+		    var arrayOfLine = csv.split('\n');
+		    var resultJson = {};
+		    var title = '';
+		    var arraName = '';
+		    var jsonArrayStr = '';
+		    
+		    $.each(arrayOfLine, function(index, item){
+		    	if(item.startsWith('#')){
+		    		title = item;
+		    		resultJson[title] = {};
+		    		return;
+		    	};
+		    	
+		    	var itemStr = item + '\n';
+				if(jsonArrayStr == '' && item.length > 0){
+					arraName = item;
+		    	}
+		    	
+		    	if(itemStr.length == 1){
+		    		resultJson[title][title + ' ' + arraName] = CSVJSON.csv2json(jsonArrayStr, {parseNumbers: true});
+		    		jsonArrayStr = '';
+		    		return;
+		    	}
+		    	jsonArrayStr += itemStr;
+		    	
+		    });
+		    $('#json').val(JSON.stringify(resultJson, null, 2));
+		});
+	});
+</script> 
+
+</head>
+<body>
+    <p id="heading">CSV to JSON Converter</p>
+    <hr />
+    <p>Paste Your CSV Here:</p>
+    <textarea id="csv" class="text">
+# tag #
+N일,이벤트 수
+0000,0
+0001,0
+0002,0
+0003,0
+0004,0
+0005,0
+0006,0
+0007,0
+0008,0
+0009,0
+0010,0
+0011,0
+0012,0
+0013,0
+0014,0
+0015,0
+0016,0
+0017,0
+0018,0
+0019,1855
+0020,3990
+0021,3809
+0022,2585
+0023,2097
+0024,12
+0025,8
+0026,1531
+0027,2136
+
+맞춤 매개변수,이벤트 수,사용자
+(not set),1317,36
+Native:검색:메인:검색어 입력,1290,34
+Native:디테일:업로드 이벤트:동영상 플레이,1072,19
+Native:홈:메인:마이페이지 아이콘,734,44
+Native:디테일:업로드 이벤트:이전 버튼,645,53
+Native:홈:메인:스페이스 아이콘,585,43
+Native:홈:메인:퍼블릭 콘텐츠(이벤트_업로드):퍼블릭 콘텐츠,573,26
+Native:홈:메인:퍼블릭 콘텐츠(이벤트_댓글 or 투표):이벤트 자세히 보기,529,46
+Native:홈:메인:퍼블릭 콘텐츠(이벤트_댓글 or 투표):카드 선택,519,42
+Native:홈:메인:추천:마이페이지 아이콘,513,63
+Native:디테일:업로드 이벤트:Likey에 업로드,506,40
+Native:디테일:업로드 이벤트:이벤트 참여하기:(Device 갤러리):새 게시물:작성하기:완료 버튼,489,28
+Native:홈:메인:추천:스페이스 아이콘,476,62
+Native:홈:메인:퍼블릭 콘텐츠(이벤트_업로드):퍼블릭 콘텐츠 목록,434,52
+Native:홈:메인:추천:홈 아이콘,403,57
+Native:디테일:업로드 이벤트:이벤트 참여하기:(Device 갤러리),386,18
+Native:홈:메인:홈 아이콘,323,38
+Native:홈:메인:별이 빛나는 밤:카드 선택,245,18
+Native:홈:메인:추천:검색 아이콘,225,50
+Native:디테일:업로드 이벤트:참여 리스트 아이콘,177,24
+Native:디테일:업로드 이벤트:참여방법 안내 아이콘,172,49
+Native:디테일:업로드 이벤트:더보기,167,23
+Native:홈:메인:([Test] 댓글형 이벤트트트트트텔미미미미미미마아아아아아아아아아아이스아메리카):카드 선택,164,9
+Native:최초실행:로그인 안내:SNS 및 E-mail 로그인,153,66
+Native:마이페이지:설정 아이콘,150,42
+Native:디테일:업로드 이벤트:이벤트 참여하기:(Device 갤러리):새 게시물:작성하기:이전 버튼,148,15
+Native:디테일:업로드 이벤트:참여방법 안내 아이콘:참여방법 안내 팝업:이전 버튼,131,39
+Native:디테일:업로드 이벤트:참여방법 안내 아이콘:참여방법 안내 팝업:닫기 버튼,126,45
+Native:스페이스:DESIGN LIBRARY:옵션 버튼,121,35
+Native:최초실행:로그인 안내:현대카드 로그인,118,61
+Native:로그인:로그인 안내:현대카드 로그인:개인회원:로그인,114,53
+Native:디테일:방문 인증:더보기,104,2
+undefined:이전 버튼,104,12
+Native:홈:메인:필터,101,32
+Native:홈:메인:퀵뷰:카드 선택,99,34
+Native:디테일:업로드 이벤트:이벤트 참여하기:(Device 갤러리):새 게시물:1:1 비율,98,21
+Native:디테일:업로드 이벤트:이벤트 참여하기:(Device 갤러리):새 게시물:Crop 버튼,98,21
+Native:디테일:업로드 이벤트:이벤트 참여하기:(Device 갤러리):새 게시물:다음 버튼,96,19
+Native:디테일:업로드 이벤트:정렬 아이콘,95,13
+Native:홈:메인:[TEST] UPLOAD EVENT:카드 선택,94,9
+Native:기타:디바이스 접근 권한 안내:확인,93,86
+Native:스페이스:DESIGN LIBRARY:방문 인증,89,10
+Native:디테일:업로드 이벤트:참여 리스트 아이콘:참여 리스트 팝업:,80,8
+"Native:홈:메인:(미션 
+Test):카드 선택",77,9
+Native:디테일:업로드 이벤트:옵션:삭제하기,75,10
+Native:홈:메인:[TEST]박's 코팅 아카데미:카드 선택,72,6
+Native:홈:메인:(별이 빛나는 밤):카드 선택,71,23
+Native:마이페이지:메인:활동 Tab:옵션,68,7
+
+# 이벤트 위치 #
+국가 ID,이벤트 수
+KR,20144
+US,2
+
+	</textarea>
+    <br />
+    <button id="convert">Convert to JSON</button>
+    &nbsp;&nbsp;
+    <textarea id="json" class="text"></textarea>
+</body>
+</html>
