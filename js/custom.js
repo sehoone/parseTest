@@ -12,18 +12,20 @@ function init_csvToJson(){
 	var jsonArrayStr = '';
 
 	$.each(arrayOfLine, function(index, item) {
+		// #으로 시작 하면 해당 영역의 타이틀
 		if (item.startsWith('#')) {
 			title = item;
 			resultJson[title] = {};
 			return;
 		}
-		;
 
 		var itemStr = item + '\n';
+		// 줄바꿈이 되어 있으면 새로운 Array가 있거나, 다른영역
 		if (jsonArrayStr == '' && item.length > 0) {
 			arraName = item;
 		}
 
+		// 줄바꿈이 있으면 Array영역이 끝난것으로 CSV를 JSON으로 포맷팅 처리 
 		if (itemStr.length == 1) {
 			resultJson[title][title + ' ' + arraName] = CSVJSON.csv2json(
 					jsonArrayStr, {
@@ -32,6 +34,7 @@ function init_csvToJson(){
 			jsonArrayStr = '';
 			return;
 		}
+		
 		jsonArrayStr += itemStr;
 
 	});
@@ -149,6 +152,7 @@ function makeSerchTagTable(resultJson){
 	   });
 	var searchTagTableData = resultJson['# tag #']['# tag # 맞춤 매개변수,이벤트 수,사용자'];
 	var searchedTagTableData = [];
+	
 	$.each(searchTagTableData, function (i, item) {
 		
 		var suiteVal = item['맞춤 매개변수'];
