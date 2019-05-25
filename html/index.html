@@ -16,6 +16,9 @@
 	<link href="../css/dataTables.bootstrap.min.css" rel="stylesheet">
 	<!-- JQVMap -->
     <link href="../css/jqvmap.min.css" rel="stylesheet"/>
+    
+    <link rel="stylesheet" href="../css/style.min.css" />
+    
     <!-- Custom Theme Style -->
     <link href="../css/custom.min.css" rel="stylesheet">
     
@@ -80,7 +83,55 @@
               <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>이벤트 위치 </h2>
+                    <h2>tag Tree</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                  <button id="allText">search</button>
+                    <div id="tagTree"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>tagSearchField </h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <table id="searchTagTable" class="table table-striped table-bordered">
+						<thead>
+						   	<tr>
+						    	<th data-field="맞춤 매개변수">맞춤 매개변수</th>
+						     	<th data-field="이벤트 수">이벤트 수</th>
+						     	<th data-field="사용자">사용자</th>
+						   	</tr>
+						</thead>
+					</table>
+                  </div>
+                  <div id = 'total'>
+                  <p id = 'sumEvent'></p><p id = 'sumUser'></p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>이벤트 위치</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -91,60 +142,6 @@
                   </div>
                   <div class="x_content">
                     <div id="world-map-gdp" style="height:400px;"></div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Donut Chart Graph <small>Sessions</small></h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Settings 1</a>
-                          </li>
-                          <li><a href="#">Settings 2</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-                    <canvas id="canvasDoughnut"></canvas>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Radar Chart <small>Sessions</small></h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Settings 1</a>
-                          </li>
-                          <li><a href="#">Settings 2</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-                    <canvas id="canvasRadar"></canvas>
                   </div>
                 </div>
               </div>
@@ -319,6 +316,8 @@ US,2
     <script src="../js/jquery.dataTables.min.js"></script>
     <script src="../js/jquery.vmap.min.js"></script>
     <script src="../js/jquery.vmap.world.js"></script>
+    
+    <script src="../js/jstree.min.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="../js/custom.js"></script>
   </body>
