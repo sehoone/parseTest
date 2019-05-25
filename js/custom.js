@@ -39,7 +39,7 @@ var chrtdata = [];
 var cdata = resultJson['# tag #']['# tag # N일,이벤트 수'];
 for (var i = 0; i < cdata.length; i++) {
 	var cdataVal = cdata[i];
-	labeldata.push(cdataVal['N일']);
+	labeldata.push(parseInt(cdataVal['N일']));
 	chrtdata.push(cdataVal['이벤트 수']);
 }
 
