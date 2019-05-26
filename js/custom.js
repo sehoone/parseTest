@@ -10,7 +10,8 @@ function init_csvToJson(){
 	var title = '';
 	var arraName = '';
 	var jsonArrayStr = '';
-
+	var arrayOfLineTotal = arrayOfLine.length;
+	
 	$.each(arrayOfLine, function(index, item) {
 		// #으로 시작 하면 해당 영역의 타이틀
 		if (item.startsWith('#')) {
@@ -37,6 +38,13 @@ function init_csvToJson(){
 		
 		jsonArrayStr += itemStr;
 
+		// 마지막행 Array 영역 CSV를 JSON으로 포맷팅 처리 
+		if (index === arrayOfLineTotal - 1) {
+			resultJson[title][title + ' ' + arraName] = CSVJSON.csv2json(
+					jsonArrayStr, {
+						parseNumbers : true
+					});
+	    }
 	});
 	return resultJson;
 }
@@ -204,9 +212,10 @@ function makeSerchTagTable(resultJson){
 }
 
 $(document).ready(function() {
-	
+	var importCsvText = '';					// import CSV text
 	// CSV to JSON object
 	var importCsvToJsonObj = init_csvToJson();
+	console.log('importCsvToJsonObj'+JSON.stringify(importCsvToJsonObj, null, 2));
 	// tag 그래프 생성
 	init_tagChart(importCsvToJsonObj);
 	// tag 테이블 생성
@@ -216,8 +225,35 @@ $(document).ready(function() {
 	// 이벤트위치 그래프 생성
 	//init_eventLocationChart(importCsvToJsonObj);
 	
-	$('#allText').click(function() {
+	$('#searchTagTree').click(function() {
 		// tag tree에서 선택한 테이블 생성
 		makeSerchTagTable(importCsvToJsonObj);
+		console.log( 'importCsvText '+importCsvText);
 	});
+	
+	$('#uploadCsvBtn').click(function() {
+		$('#uploadCsv').click();
+	});
+	
+	// import CSV File
+	$('#uploadCsv').change(function () {
+        if (!("files" in this)) {
+            alert("File reading not supported in this browser");
+        }
+        var file = this.files && this.files[0];
+        if (!file) {
+            return;
+        }
+
+        var fileReader = new FileReader();
+
+        fileReader.onload = function (e) {
+        	importCsvText = e.target.result;
+        };
+        
+        fileReader.readAsText(this.files[0], 'EUC-KR');
+        
+	});
+	
+	
 });
